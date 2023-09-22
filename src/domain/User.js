@@ -1,12 +1,14 @@
-import crypto from "node:crypto";
 import { UserAge } from "./UserAge.js";
 import { UserPassword } from "./UserPassword.js";
+import { UserEmail } from "./UserEmail.js";
 
 export class User {
   constructor(id, name, email, password, age) {
+    if (typeof id !== "number") throw new Error("ID is not a number");
     this.id = id;
+    if (typeof name !== "string") throw new Error("Name is not a string");
     this.name = name;
-    this.email = email;
+    this.email = new UserEmail(email);
     this.password = UserPassword.fromPlain(password)
     this.age = new UserAge(age);
   }
@@ -20,7 +22,7 @@ export class User {
   }
 
   getEmail() {
-    return this.email
+    return this.email.email
   }
 
   getHashedPassword() {
