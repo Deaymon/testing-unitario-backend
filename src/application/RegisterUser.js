@@ -5,8 +5,8 @@ export class RegisterUser {
         this.userRepository = userRepository;
     }
 
-    execute(id, name, email, password, age) {
-        const user = new User(id, name, email, password, age);
+    execute(name, email, password, age) {
+        const user = new User(Math.random(), name, email, password, age);
         this.userRepository.save(user);
     }
 }
