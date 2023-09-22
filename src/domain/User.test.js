@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { User } from "./User.js";
 
 describe("User", () => {
-  it("has an id", () => {
+  it("has an idsssssss", () => {
     const id = 1;
     const user = new User(id, "notImportant", "notImportant", "notImportant", 18)
 
